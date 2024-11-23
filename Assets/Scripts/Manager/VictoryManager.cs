@@ -10,7 +10,7 @@ namespace OneHourJam.Manager
 
         private void Awake()
         {
-            _text.text = $"You reached 500 in {CommonManager.ClickAmount} clicks and {Mathf.FloorToInt(CommonManager.Time / 60f)} minutes and {Mathf.FloorToInt(CommonManager.Time % 60f)} seconds";
+            _text.text = $"You reached 500 in {CommonManager.ClickAmount} clicks, {Mathf.FloorToInt(CommonManager.Time / 60f)} minutes and {Mathf.FloorToInt(CommonManager.Time % 60f)} seconds";
         }
     }
 }
