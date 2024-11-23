@@ -1,3 +1,4 @@
+using OneHourJam.Manager;
 using OneHourJam.Map;
 using System.Collections;
 using TMPro;
@@ -61,6 +62,8 @@ namespace OneHourJam
 
             if (_myNumber == 500)
             {
+                CommonManager.ClickAmount = _opCount;
+                CommonManager.Time = _timer;
                 SceneManager.LoadScene("Victory");
             }
 
