@@ -36,9 +36,10 @@ namespace OneHourJam.Map
             _rb.linearVelocity = Vector2.right * 5f;
         }
 
-        private void OnMouseUpAsButton()
+        private void OnMouseDown()
         {
-            Debug.Log("clicked");
+            GameManager.Instance.AddMath(_operator, _number);
+            Destroy(gameObject);
         }
 
         public enum Operator

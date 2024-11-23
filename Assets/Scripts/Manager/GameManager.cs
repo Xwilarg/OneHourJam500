@@ -1,3 +1,4 @@
+using OneHourJam.Map;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,8 @@ namespace OneHourJam
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance { private set; get; }
+
         private Camera _cam;
 
         [SerializeField]
@@ -18,9 +21,36 @@ namespace OneHourJam
 
         private void Awake()
         {
+            Instance = this;
             _cam = Camera.main;
 
             StartCoroutine(SpawnMath());
+        }
+
+        public void AddMath(MathOperator.Operator op, int number)
+        {
+            switch (op)
+            {
+                case MathOperator.Operator.Plus:
+                    _myNumber += number;
+                    break;
+
+                case MathOperator.Operator.Minus:
+                    _myNumber -= number;
+                    break;
+
+                case MathOperator.Operator.Mult:
+                    _myNumber *= number;
+                    break;
+
+                case MathOperator.Operator.Divide:
+                    _myNumber /= number;
+                    break;
+
+                default: throw new System.NotImplementedException();
+            }
+
+            UpdateUI();
         }
 
         private IEnumerator SpawnMath()
