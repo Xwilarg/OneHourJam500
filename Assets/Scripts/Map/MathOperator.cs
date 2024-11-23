@@ -16,8 +16,9 @@ namespace OneHourJam.Map
         private void Awake()
         {
             _text = GetComponentInChildren<TMP_Text>();
+            _rb = GetComponent<Rigidbody2D>();
 
-            _number = Random.Range(-10, 11);
+            _number = Random.Range(0, 16);
             var values = System.Enum.GetValues(typeof(Operator)).Cast<Operator>().ToArray();
             _operator = values[Random.Range(0, values.Length)];
 
@@ -37,7 +38,7 @@ namespace OneHourJam.Map
 
         private void OnMouseUpAsButton()
         {
-            
+            Debug.Log("clicked");
         }
 
         public enum Operator
