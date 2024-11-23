@@ -18,9 +18,13 @@ namespace OneHourJam.Map
             _text = GetComponentInChildren<TMP_Text>();
             _rb = GetComponent<Rigidbody2D>();
 
-            if (Random.Range(0, 2) < 0)
+            if (Random.Range(0, 5) == 0)
             {
-                _number = Random.Range(0, 6);
+                _number = Random.Range(1, 3);
+            }
+            else if (Random.Range(0, 3) < 2)
+            {
+                _number = Random.Range(1, 10);
             }
             else
             {

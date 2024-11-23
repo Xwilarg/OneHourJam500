@@ -19,6 +19,8 @@ namespace OneHourJam
         [SerializeField]
         private TMP_Text _numberText;
 
+        public int MyNumber => _myNumber;
+
         private int _myNumber;
         private float _timer;
         private int _opCount;
