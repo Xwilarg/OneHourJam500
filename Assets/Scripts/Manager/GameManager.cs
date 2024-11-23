@@ -2,6 +2,7 @@ using OneHourJam.Map;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace OneHourJam
 {
@@ -18,6 +19,8 @@ namespace OneHourJam
         private TMP_Text _numberText;
 
         private int _myNumber;
+        private float _timer;
+        private int _opCount;
 
         private void Awake()
         {
@@ -27,8 +30,14 @@ namespace OneHourJam
             StartCoroutine(SpawnMath());
         }
 
+        private void Update()
+        {
+            _timer += Time.deltaTime;
+        }
+
         public void AddMath(MathOperator.Operator op, int number)
         {
+            _opCount++;
             switch (op)
             {
                 case MathOperator.Operator.Plus:
@@ -48,6 +57,11 @@ namespace OneHourJam
                     break;
 
                 default: throw new System.NotImplementedException();
+            }
+
+            if (_myNumber == 500)
+            {
+                SceneManager.LoadScene("Victory");
             }
 
             UpdateUI();
