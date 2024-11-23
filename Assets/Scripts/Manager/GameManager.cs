@@ -72,7 +72,7 @@ namespace OneHourJam
             var bounds = CalculateBounds(_cam);
             while (true)
             {
-                yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(.25f);
 
                 var y = Random.Range(bounds.min.y, bounds.max.y);
 

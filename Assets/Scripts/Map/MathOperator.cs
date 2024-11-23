@@ -18,7 +18,14 @@ namespace OneHourJam.Map
             _text = GetComponentInChildren<TMP_Text>();
             _rb = GetComponent<Rigidbody2D>();
 
-            _number = Random.Range(0, 16);
+            if (Random.Range(0, 2) < 0)
+            {
+                _number = Random.Range(0, 6);
+            }
+            else
+            {
+                _number = Random.Range(0, 16);
+            }
             var values = System.Enum.GetValues(typeof(Operator)).Cast<Operator>().ToArray();
             _operator = values[Random.Range(0, values.Length)];
 
@@ -40,6 +47,14 @@ namespace OneHourJam.Map
         {
             GameManager.Instance.AddMath(_operator, _number);
             Destroy(gameObject);
+        }
+
+        private void Update()
+        {
+            if (transform.position.x > 25f) // Should be good enough
+            {
+                Destroy(gameObject);
+            }
         }
 
         public enum Operator
