@@ -69,6 +69,11 @@ namespace OneHourJam
                 SceneManager.LoadScene("Victory");
             }
 
+            if (Mathf.Abs(_myNumber) > 1_000_000f)
+            {
+                SceneManager.LoadScene("Secret");
+            }
+
             UpdateUI();
         }
 
