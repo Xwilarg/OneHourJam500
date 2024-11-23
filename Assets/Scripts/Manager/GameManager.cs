@@ -84,7 +84,7 @@ namespace OneHourJam
             {
                 yield return new WaitForSeconds(.25f);
 
-                var y = Random.Range(bounds.min.y, bounds.max.y);
+                var y = Random.Range(bounds.min.y + .5f, bounds.max.y - .5f);
 
                 var pos = new Vector2(bounds.min.x - 2f, y);
                 Instantiate(_mathPrefab, pos, Quaternion.identity);
